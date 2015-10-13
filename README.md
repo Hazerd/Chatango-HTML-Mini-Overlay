@@ -1,4 +1,4 @@
-Chatango HTML Mini Popup
+Chatango HTML Mini Overlay
 
 [Chatango](http://chatango.com) is a basic chat site, with a user interface
 based around HTML5 and JavaScript. However, before the HTML5/JS interface
