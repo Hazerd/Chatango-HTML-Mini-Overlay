@@ -29,7 +29,7 @@ Installation:
 1. Install a UserScript manager for your browser.
 - [GreaseMonkey](http://www.greasespot.net/) and
 [TamperMonkey](http://tampermonkey.net/) are two popular choices.
-2. Visit the [Greasey Fork Page](https://greasyfork.org)(WIP) and click the Green
-"Install this script" button.
+2. Visit the [Greasy Fork Page](https://greasyfork.org/en/scripts/13044-chatango-html-mini-overlay)
+and click the Green "Install this script" button.
 3. This step varies on your manager. But generally, there should be a
 button to Install the script.
