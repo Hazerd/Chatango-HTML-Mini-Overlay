@@ -65,7 +65,7 @@ When posting an issue, include the name and version (if possible) of your
 browser, as well as the name of the UserScript manager (GreaseMonkey,
 TamperMonkey, etc.) that you are using.
 
-## Suggestion? Questions? Feedback? ##
+## Suggestions? Questions? Feedback? ##
 Many users have no idea how important these can be to a developer!
 
 You can post an issue for suggestions, questions, and feedback alike. They
