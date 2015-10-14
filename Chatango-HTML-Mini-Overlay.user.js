@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Chatango HTML Mini Overlay
 // @namespace    Chatango-HTML-Mini-Overlay
-// @version      0.1
+// @version      0.2
 // @description  An extension for chatango.com's new html5/js chat. Which adds the old "mini profile on hover" feature.
 // @author       Hazerd (Hazerdous) <Daniel Ransom>
-// @homepage     http://hazerd.com
+// @homepage     https://github.com/Hazerdous/Chatango-HTML-Mini-Overlay/
 // @support      https://github.com/Hazerdous/Chatango-HTML-Mini-Overlay/issues
 // @include      http://*.chatango.com/*
 // @include      https://*.chatango.com/*
@@ -14,21 +14,26 @@
 
 'use strict';
 $("body").append(
-'<div id="floating-mini-container"\
-style="position:absolute; width:60%; min-width:300px; border-spacing:0; overflow:hidden;\
-border-style:solid; border-width:1px; z-index:999; background-color:rgba(100,100,100,0.9); visibility:hidden;" >\
+'\
+<div id="floating-mini-container"\
+style="position:absolute; max-width:80%; min-width:300px; border-spacing:0;\
+overflow:hidden; border-style:solid; border-width:1px; z-index:999;\
+background-color:rgba(100,100,100,0.9); visibility:hidden;" >\
 <div id="floating-mini-content"\
-style="height:100%;width:100%; white-space:pre; overflow:scroll;\
-text-shadow:1px 0 black, -1px 0 black, 0 1px black, 0 -1px black; color:white;">\
+style="height:100%;width:100%; white-space:pre; overflow:scroll; color:white;\
+text-shadow:1px 0 black, -1px 0 black, 0 1px black, 0 -1px black;">\
 </div>\
 </div>\
 <img id="floating-mini-image" src="" alt="Loading . . ."\
-style="position:absolute; max-height:150px; border-style:solid; border-width:1px;\
-z-index:1000; visibility:hidden;">\
+style="position:absolute; max-height:150px; border-style:solid; z-index:1000;\
+border-width:1px; visibility:hidden;">\
 <div id="floating-mini-asl"\
-style="position:absolute; white-space:nowrap; min-width:300px; width:60%; height:20px; font-size:20px; line-height:1;\
-border-style:solid; border-width:1px; border-color:black; z-index:1000; background-color:rgba(100,100,100,0.9); visibility:hidden;\
-text-shadow:1px 0 black, -1px 0 black, 0 1px black, 0 -1px black; color:white;">'
+style="position:absolute; white-space:nowrap; min-width:300px; max-width:80%;\
+height:20px; font-size:20px; line-height:1; border-style:solid; z-index:1000;\
+border-width:1px; border-color:black; visibility:hidden; color:white;\
+background-color:rgba(100,100,100,0.9);\
+text-shadow:1px 0 black, -1px 0 black, 0 1px black, 0 -1px black;">\
+'
 )
 
 var elem = $("#floating-mini-container")
@@ -63,9 +68,9 @@ $(document).on("mousemove", function(e) {
    asl.css("visibility", "hidden")
    elem.css("visibility", "hidden")
    image.css("visibility", "hidden")
-   content[0].innerHTML = "Loading . . ."
+   setAbout()
    resetASL()
-   image[0].src= ""
+   setImage()
    content[0].style.zoom = 1
   }
  }
@@ -100,21 +105,30 @@ function getUserData(name) {
 }
 
 function setImage(name) {
- image[0].src="http://fp.chatango.com/profileimg/" + name[0] + "/" + (name[1] || name[0]) + "/" + name + "/full.jpg"
+ if (!name) {
+  image[0].src=""
+ } else {
+  image[0].src="http://fp.chatango.com/profileimg/" + name[0] + "/" + (name[1] || name[0]) + "/" + name + "/full.jpg"
+ }
 }
 function setAbout(text) {
- if (text === null) {
+ if (text === undefined) {
+  content[0].innerHTML = "Loading . . ."
+ } else if (text === null) {
   content[0].innerHTML = "No Profile Data"
  } else {
-  content[0].innerHTML = decodeURIComponent(text.replace(/%0D/g, "<br>"))
+  content[0].innerHTML = decodeURIComponent(text.replace(/%0D/g, "<br>")).replace(/<[^>]*?script.*?>.*?<[^>]*?\/script.*?>/gi, "")
   content[0].style.zoom = elem[0].clientWidth / content[0].scrollWidth
   elem[0].style.height = content[0].scrollheight * content[0].style.zoom
  }
  updatePosition()
 }
 function setAge(age) {
- if (age === null) { ASL[0] = "Age?" }
- else { ASL[0] = age.toString() }
+ if (!age) {
+  ASL[0] = "Age?"
+ } else {
+  ASL[0] = age.toString()
+ }
 }
 function setGender(gen) {
  if (gen == "M") {
@@ -126,13 +140,17 @@ function setGender(gen) {
  }
 }
 function setLocation(loc) {
- ASL[2] = loc || "Location?"
+ if (!loc) {
+  ASL[2] = "Location?"
+ } else {
+  ASL[2] = loc
+ }
 }
 function setASL(a, s, l) {
  setAge(a)
  setGender(s)
  setLocation(l)
- asl[0].innerHTML = ASL.join(", ")
+ asl[0].innerHTML = ASL.join("; ")
 }
 function extractASL(data) {
  var a = data.match(/<b>(\d\d\d\d)-\d\d-\d\d<\/b>/)
