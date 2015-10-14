@@ -3,7 +3,7 @@
 [Chatango](http://chatango.com) is a basic chat site, with a user interface
 based around HTML5 and JavaScript. However, before the HTML5/JS interface
 was created, the interface was made with Flash.  
-This version had one major feature. Many user still use the outdated Flash
+This version had one major feature. Many users still use the outdated Flash
 version because this feature is missing from the new version.  
 The feature is a simple overlay, which appears near the cursor when
 you hover over another user's profile picture. This overlay would show
@@ -83,9 +83,9 @@ just try re-sending the message. Odds are I just never got it.
 # Installation #
 
 1. Install a UserScript manager for your browser.
-2. [GreaseMonkey](http://www.greasespot.net/) and
+[GreaseMonkey](http://www.greasespot.net/) and
 [TamperMonkey](http://tampermonkey.net/) are two popular choices.
-3. Visit the [Greasy Fork Page](https://greasyfork.org/en/scripts/13044-chatango-html-mini-overlay)
+2. Visit the [Greasy Fork Page](https://greasyfork.org/en/scripts/13044-chatango-html-mini-overlay)
 and click the Green "Install this script" button.
-4. This step varies on your manager. But generally, there should be a
+3. This step varies on your manager. But generally, there should be a
 button to Install the script.
