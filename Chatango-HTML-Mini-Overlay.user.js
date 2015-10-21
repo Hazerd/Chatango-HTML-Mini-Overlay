@@ -20,7 +20,7 @@ style="position:absolute; max-width:80%; min-width:300px; border-spacing:0;\
 overflow:hidden; border-style:solid; border-width:1px; z-index:999;\
 background-color:rgba(100,100,100,0.9); visibility:hidden;" >\
 <div id="floating-mini-content"\
-style="height:100%;width:100%; white-space:pre; overflow:scroll; color:white;\
+style="height:100%;width:100%; white-space:pre; overflow:hidden; color:white;\
 text-shadow:1px 0 black, -1px 0 black, 0 1px black, 0 -1px black;">\
 </div>\
 </div>\

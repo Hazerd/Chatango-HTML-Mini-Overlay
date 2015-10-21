@@ -4,6 +4,9 @@
 - Make sure the A;S;L box and the content box are always the same width.
 - Allow configuration of several features, colors, sizes, etc.
 
+### v0.3 ###
+- Removed the scrollbar.
+
 ### v0.2 ###
 - Added CHANGELOG.
 - Updated README.
