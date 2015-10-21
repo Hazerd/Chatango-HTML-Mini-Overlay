@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Chatango HTML Mini Overlay
 // @namespace    Chatango-HTML-Mini-Overlay
-// @version      0.2
+// @version      0.3
 // @description  An extension for chatango.com's new html5/js chat. Which adds the old "mini profile on hover" feature.
 // @author       Hazerd (Hazerdous) <Daniel Ransom>
 // @homepage     https://github.com/Hazerdous/Chatango-HTML-Mini-Overlay/
